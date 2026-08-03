@@ -2,15 +2,15 @@ const days = [
   { date:"01.01", weekday:"FRI", city:"札幌", title:"抵達雪國，迎接新年的第一夜", tone:"blue", stops:[
     ["09:15","台灣起飛","前往新千歲機場；日本時間快台灣 1 小時。"],
     ["14:05","抵達新千歲機場","預留 75–90 分鐘入境、領行李及購買交通票券。"],
-    ["15:40","前往札幌","搭 JR 快速 Airport；若行李多也可選機場巴士直達薄野。"],
-    ["17:10","Vessel Hotel 入住","寄放行李後依實際時間決定初詣地點。"],
-    ["18:00","札幌諏訪神社初詣","把諏訪神社列為正式行程；若航班或入境延誤，再改較靠近薄野的北海道神宮頓宮。"],
+    ["15:30","前往札幌","力求 15:30 前離開機場；搭 JR 快速 Airport，再轉地下鐵前往薄野。"],
+    ["16:40","Vessel Hotel 寄放行李","先寄放行李、不停留整理，立刻搭地下鐵前往圓山公園。"],
+    ["17:20","北海道神宮初詣","元旦近年約 18:00 關門，抵達後先參拜再領御守；若航班延誤則順延至 1/2。"],
     ["20:00","狸小路商店街・薄野","逛狸小路 1～7 丁目、晚餐與散步；想吃拉麵可安排麵屋雪風。"]]},
   { date:"01.02", weekday:"SAT", city:"札幌", title:"北海道神宮初詣與札幌初賣", tone:"ice", stops:[
-    ["07:30","飯店出發","薄野 → 大通轉東西線 → 圓山公園。"],
-    ["08:15","北海道神宮","參拜、御守與御神籤；早到可避開正午最大人潮。"],
-    ["10:30","圓山・午餐","圓山公園散步，找咖啡廳或提早午餐。"],
-    ["13:00","大通公園","札幌時計台外觀、雪景散步。"],
+    ["08:30","札幌諏訪神社","從薄野前往北 12 條東 1 丁目參拜，欣賞正月境內與花手水。"],
+    ["10:00","札幌站初賣","JR Tower、Stellar Place 等年始購物；實際開店時間年底再確認。"],
+    ["12:30","札幌站・午餐","在札幌站或地下街用餐。"],
+    ["14:00","大通公園","札幌時計台外觀、雪景散步。"],
     ["16:30","札幌電視塔","傍晚登塔，一次看日景、暮色與點燈。"],
     ["18:00","百貨商圈・初賣","丸井今井、三越、地下街，晚餐後回薄野。"]]},
   { date:"01.03", weekday:"SUN", city:"美瑛・富良野", title:"一日遊團的純白風景", tone:"snow", stops:[
@@ -98,6 +98,6 @@ export default function Home(){return <main>
 
   <section className="itinerary shell" id="itinerary">{days.map((d,i)=><article className={`day day-${d.tone}`} id={`day-${i+1}`} key={d.date}><div className="dayDate"><span>DAY {String(i+1).padStart(2,"0")}</span><strong>{d.date}</strong><em>{d.weekday}</em></div><div className="dayContent"><div className="dayTitle"><p>{d.city}</p><h2>{d.title}</h2></div><ol className="timeline">{d.stops.map(s=><li key={`${d.date}-${s[0]}-${s[1]}`}><time>{s[0]}</time><div><h3>{s[1]}</h3><p>{s[2]}</p></div></li>)}</ol></div></article>)}</section>
 
-  <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>元旦初詣</h3><p>北海道神宮元旦近年約 18:00 關門。若 17:30 尚未抵達圓山，改去北海道神宮頓宮或諏訪神社，隔天早上再訪本宮。</p></article><article><b>02</b><h3>年始營業</h3><p>小樽藝術村、北大 Marche、時計台、百貨公司與餐廳的 2027 年始時間，請於 2026 年 11–12 月再確認。</p></article><article><b>03</b><h3>洞爺交通</h3><p>洞爺站、溫泉街與有珠山並非步行範圍。先確認飯店接駁，再預約計程車或包車前往昭和新山。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；1/8 晚餐已固定在啤酒園，藻岩山夜景備案改放 1/9 晚上。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；啤酒園訂位請選「開拓使館」及羊肉食べ放題，不必指定館內大廳。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、飯店接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
+  <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>元旦北海道神宮</h3><p>元旦近年約 18:00 關門，這個安排非常吃入境速度。若 16:40 還沒抵達飯店，1/1 改市區晚餐，1/2 早上以北海道神宮取代諏訪神社。</p></article><article><b>02</b><h3>年始營業</h3><p>小樽藝術村、北大 Marche、時計台、百貨公司與餐廳的 2027 年始時間，請於 2026 年 11–12 月再確認。</p></article><article><b>03</b><h3>洞爺交通</h3><p>洞爺站、溫泉街與有珠山並非步行範圍。先確認飯店接駁，再預約計程車或包車前往昭和新山。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；1/8 晚餐已固定在啤酒園，藻岩山夜景備案改放 1/9 晚上。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；啤酒園訂位請選「開拓使館」及羊肉食べ放題，不必指定館內大廳。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、飯店接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
   <footer><div className="shell"><strong>北國十日</strong><p>HOKKAIDO WINTER JOURNAL · 2027</p><a href="#top">回到頁首 ↑</a></div></footer>
   </main>}
