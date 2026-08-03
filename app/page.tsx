@@ -91,9 +91,26 @@ const hotels = [
   ["01.07—10","Keio Prelia Hotel Sapporo","札幌・3 晚"]
 ];
 
+const reservations = [
+  ["01.03","美瑛・富良野一日遊團","確認集合地點、雪上摩托車是否含在團費，以及取消規則。"],
+  ["01.04","宝すし（Takara Sushi）午餐","預約 12:30 午餐；店家午間僅營業至 14:00。"],
+  ["01.04","吉伊卡哇 MOGUMOGU 本舖","目前須透過官方 LINE 參加入店預約或抽選，出發前再確認規則。"],
+  ["01.05—07","特急北斗指定席","預訂札幌→洞爺、洞爺→函館、函館→札幌三段座位。"],
+  ["01.05","洞爺湖接駁與計程車","先向湖之栖確認接駁，再預約昭和新山、有珠山一帶的移動方式。"],
+  ["01.08","成吉思汗烤肉晚餐","選定札幌站、狸小路或薄野附近餐廳後，預約 18:30。"],
+  ["01.09","支笏湖一日遊團","優先預訂札幌出發團；若沒有合適團次，啟用市區備案。"]
+];
+
+const backups = [
+  ["札幌諏訪神社","若北海道神宮周邊提早逛完，或想增加另一處新年參拜，可安排早上前往；以冬季花手水與雪景為主。"],
+  ["藻岩山觀景台","函館山夜景沒看到時，放在 1/9 支笏湖準時回程後；出發前確認纜車與迷你纜車是否運行。"],
+  ["白色戀人公園・札幌市區","1/9 找不到合適的支笏湖交通，或遇到大雪停駛時，整日改為此方案與最後購物。"],
+  ["洞爺湖畔散策","有珠山纜車因強風停駛時，改走湖畔、溫泉街與室內咖啡行程。"]
+];
+
 export default function Home(){return <main>
   <header className="hero" id="top">
-    <nav className="nav shell"><a className="brand" href="#top">北國十日</a><div className="navlinks"><a href="#overview">概覽</a><a href="#itinerary">行程</a><a href="#notes">Notes</a></div></nav>
+    <nav className="nav shell"><a className="brand" href="#top">北國十日</a><div className="navlinks"><a href="#overview">概覽</a><a href="#itinerary">行程</a><a href="#checklists">清單</a><a href="#notes">Notes</a></div></nav>
     <div className="heroInner shell"><div className="heroCopy"><p className="eyebrow">HOKKAIDO · WINTER 2027</p><h1>北海道<br/>雪路旅誌</h1><p className="lead">札幌、小樽、美瑛、洞爺湖與函館。每一站都有時間，每一天都留有風雪所需的餘白。</p><a className="primaryButton" href="#itinerary">查看十日行程 <span>↓</span></a></div>
     <div className="heroCard"><div className="stamp"><span>JAN</span><strong>01—10</strong><small>10 DAYS · 9 NIGHTS</small></div><div className="routeLine"><b>CTS</b><i></i><b>SPK</b><i></i><b>OTR</b><i></i><b>TOYA</b><i></i><b>HKD</b></div><div className="hotelBrief">{hotels.map(h=><p key={h[0]}><span>{h[0]}</span>{h[1]}</p>)}</div></div></div>
   </header>
@@ -102,6 +119,8 @@ export default function Home(){return <main>
   <div className="quickNav">{days.map((d,i)=><a href={`#day-${i+1}`} key={d.date}><strong>{d.date}</strong><span>{d.city}</span></a>)}</div></section>
 
   <section className="itinerary shell" id="itinerary">{days.map((d,i)=><article className={`day day-${d.tone}`} id={`day-${i+1}`} key={d.date}><div className="dayDate"><span>DAY {String(i+1).padStart(2,"0")}</span><strong>{d.date}</strong><em>{d.weekday}</em></div><div className="dayContent"><div className="dayTitle"><p>{d.city}</p><h2>{d.title}</h2></div><ol className="timeline">{d.stops.map(s=><li key={`${d.date}-${s[0]}-${s[1]}`}><time>{s[0]}</time><div><h3>{s[1]}</h3><p>{s[2]}</p></div></li>)}</ol></div></article>)}</section>
+
+  <section className="checklists shell" id="checklists"><div className="sectionHeading"><p>BOOK &amp; PLAN B</p><h2>預約與備案清單</h2></div><div className="listColumns"><article className="listPanel bookingList"><div className="listPanelTitle"><span>RESERVATIONS</span><h3>要預定的</h3></div><ol>{reservations.map((item,i)=><li key={item[1]}><b>{String(i+1).padStart(2,"0")}</b><div><time>{item[0]}</time><h4>{item[1]}</h4><p>{item[2]}</p></div></li>)}</ol></article><article className="listPanel backupList"><div className="listPanelTitle"><span>ALTERNATIVES</span><h3>備案</h3></div><ol>{backups.map((item,i)=><li key={item[0]}><b>{String(i+1).padStart(2,"0")}</b><div><h4>{item[0]}</h4><p>{item[1]}</p></div></li>)}</ol></article></div></section>
 
   <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>元旦北海道神宮</h3><p>元旦近年約 18:00 關門，這個安排非常吃入境速度。若 16:40 還沒抵達飯店，1/1 直接改市區晚餐與休息；1/2 早上仍會前往北海道神宮與圓山一帶。</p></article><article><b>02</b><h3>年始營業</h3><p>小樽藝術村、北大 Marche、時計台、百貨公司與餐廳的 2027 年始時間，請於 2026 年 11–12 月再確認。</p></article><article><b>03</b><h3>洞爺交通</h3><p>洞爺站、溫泉街與有珠山並非步行範圍。先確認飯店接駁，再預約計程車或包車前往昭和新山。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；藻岩山夜景備案放在 1/9 晚上，僅於函館夜景未看到且支笏湖準時回程時執行。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；1/8 的成吉思汗烤肉店待選定後也建議事先訂位。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、飯店接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
   <footer><div className="shell"><strong>北國十日</strong><p>HOKKAIDO WINTER JOURNAL · 2027</p><a href="#top">回到頁首 ↑</a></div></footer>
