@@ -60,12 +60,13 @@ const days = [
     ["19:30","狸小路商店街（可選）","體力足夠就搭地下鐵前往狸小路吃晚餐、補逛；累了則留在札幌站用餐。"]]},
   { date:"01.08", weekday:"FRI", city:"札幌", title:"校園、甜點與啤酒香", tone:"ice", stops:[
     ["09:00","北海道大學","從飯店步行進校園看雪景。"],
-    ["10:00","北大マルシェ Café & Labo","到百年紀念會館品嘗北大牛奶、自製起司餐點或義式冰淇淋。"],
-    ["11:30","六花亭札幌本店","甜點、伴手禮與短暫休息。"],
-    ["12:30","雪印パーラー","經典冰淇淋；前一站吃得較多時可只外帶。"],
-    ["13:30","札幌時計台","補看 1/2 無法進入的室內展示。"],
-    ["15:00","札幌啤酒博物館","參觀與試飲，結束後步行前往同園區餐廳。"],
-    ["17:00","サッポロビール園・開拓使館","預約成吉思汗羊肉食べ放題晚餐；餐廳在博物館旁的同一園區。"]]},
+    ["10:00","北海道大學綜合博物館","參觀校史、自然科學與研究標本展示；目前免費入館、17:00 閉館。"],
+    ["11:45","北大マルシェ Café & Labo","到百年紀念會館品嘗北大牛奶、自製起司餐點或義式冰淇淋。"],
+    ["13:00","六花亭札幌本店","甜點、伴手禮與短暫休息。"],
+    ["14:00","雪印パーラー","經典冰淇淋；前一站吃得較多時可只外帶。"],
+    ["14:45","札幌時計台","補看 1/2 無法進入的室內展示。"],
+    ["16:00","札幌啤酒博物館","參觀啤酒歷史展示並試飲；結束後返回札幌市區。"],
+    ["18:30","成吉思汗烤肉晚餐","不在札幌啤酒園用餐，改選札幌站、薄野或狸小路附近的成吉思汗烤肉店。"]]},
   { date:"01.09", weekday:"SAT", city:"支笏湖", title:"最後一片寧靜湖藍", tone:"snow", stops:[
     ["08:00","札幌出發","優先參加札幌出發一日團；以下時間依團程微調。"],
     ["10:00","支笏湖畔","湖景散步、遊客中心與雪景。"],
@@ -102,6 +103,6 @@ export default function Home(){return <main>
 
   <section className="itinerary shell" id="itinerary">{days.map((d,i)=><article className={`day day-${d.tone}`} id={`day-${i+1}`} key={d.date}><div className="dayDate"><span>DAY {String(i+1).padStart(2,"0")}</span><strong>{d.date}</strong><em>{d.weekday}</em></div><div className="dayContent"><div className="dayTitle"><p>{d.city}</p><h2>{d.title}</h2></div><ol className="timeline">{d.stops.map(s=><li key={`${d.date}-${s[0]}-${s[1]}`}><time>{s[0]}</time><div><h3>{s[1]}</h3><p>{s[2]}</p></div></li>)}</ol></div></article>)}</section>
 
-  <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>元旦北海道神宮</h3><p>元旦近年約 18:00 關門，這個安排非常吃入境速度。若 16:40 還沒抵達飯店，1/1 直接改市區晚餐與休息；1/2 早上仍會前往北海道神宮與圓山一帶。</p></article><article><b>02</b><h3>年始營業</h3><p>小樽藝術村、北大 Marche、時計台、百貨公司與餐廳的 2027 年始時間，請於 2026 年 11–12 月再確認。</p></article><article><b>03</b><h3>洞爺交通</h3><p>洞爺站、溫泉街與有珠山並非步行範圍。先確認飯店接駁，再預約計程車或包車前往昭和新山。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；1/8 晚餐已固定在啤酒園，藻岩山夜景備案改放 1/9 晚上。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；啤酒園訂位請選「開拓使館」及羊肉食べ放題，不必指定館內大廳。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、飯店接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
+  <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>元旦北海道神宮</h3><p>元旦近年約 18:00 關門，這個安排非常吃入境速度。若 16:40 還沒抵達飯店，1/1 直接改市區晚餐與休息；1/2 早上仍會前往北海道神宮與圓山一帶。</p></article><article><b>02</b><h3>年始營業</h3><p>小樽藝術村、北大 Marche、時計台、百貨公司與餐廳的 2027 年始時間，請於 2026 年 11–12 月再確認。</p></article><article><b>03</b><h3>洞爺交通</h3><p>洞爺站、溫泉街與有珠山並非步行範圍。先確認飯店接駁，再預約計程車或包車前往昭和新山。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；藻岩山夜景備案放在 1/9 晚上，僅於函館夜景未看到且支笏湖準時回程時執行。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；1/8 的成吉思汗烤肉店待選定後也建議事先訂位。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、飯店接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
   <footer><div className="shell"><strong>北國十日</strong><p>HOKKAIDO WINTER JOURNAL · 2027</p><a href="#top">回到頁首 ↑</a></div></footer>
   </main>}
