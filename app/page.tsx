@@ -1,10 +1,10 @@
 const days = [
-  { date:"01.01", weekday:"FRI", city:"札幌", title:"抵達雪國，迎接新年的第一夜", tone:"blue", stops:[
+  { date:"01.01", weekday:"FRI", city:"札幌", title:"抵達雪國的第一夜", tone:"blue", stops:[
     ["上午","自台灣出發","前往北海道；日本時間快台灣 1 小時。"],
     ["下午","抵達北海道","預留充足時間入境、領行李及購買交通票券。"],
     ["下午","前往札幌","完成入境後搭 JR 快速 Airport，再轉地下鐵進入市區。"],
     ["傍晚前","札幌住宿寄放行李","先寄放行李、不停留整理，立刻搭地下鐵前往圓山公園。"],
-    ["17:20","北海道神宮參拜","元旦近年約 18:00 關門，抵達後先參拜再領御守；若航班延誤則順延至 DAY 2。"],
+    ["17:20","北海道神宮參拜","參拜時間可能提早結束，抵達後先參拜再領御守；若航班延誤則順延至 DAY 2。"],
     ["18:40","薄野晚餐","參拜後返回薄野吃晚餐；想吃拉麵可安排麵屋雪風。"],
     ["20:00","回飯店休息","辦理入住、整理行李，第一晚不再安排逛街。"]]},
   { date:"01.02", weekday:"SAT", city:"札幌", title:"札幌市區散步與逛街", tone:"ice", stops:[
@@ -63,7 +63,7 @@ const days = [
     ["19:30","狸小路商店街（可選）","體力足夠就搭地下鐵前往狸小路吃晚餐、補逛；累了則留在札幌站用餐。"],
     ["21:30","夜パフェ専門店 ななかま堂（可選）","晚餐後到薄野吃深夜聖代；若從函館回來太累就直接回飯店，2027 年營業時間需再確認。"]]},
   { date:"01.08", weekday:"FRI", city:"札幌", title:"圓山晨景與北大校園", tone:"ice", stops:[
-    ["08:00","北海道神宮・圓山公園","回到圓山一帶悠閒散步；若元旦參拜匆忙，可補領御守、拍雪景。"],
+    ["08:00","北海道神宮・圓山公園","回到圓山一帶悠閒散步；若 DAY 1 參拜匆忙，可補領御守、拍雪景。"],
     ["09:00","六花亭 神宮茶屋店","在境內吃現烤限定甜點「判官さま」；實際營業時間出發前再確認。"],
     ["09:40","森彥 MORIHICO. 本店","步行到南 2 條西 26 丁目的老屋咖啡館，吃早午餐。"],
     ["11:30","北海道大學","搭地下鐵返回札幌站，從正門進校園看雪景。"],
@@ -110,7 +110,7 @@ const reservations = [
 ];
 
 const backups = [
-  ["札幌諏訪神社","若北海道神宮周邊提早逛完，或想增加另一處新年參拜，可安排早上前往；以冬季花手水與雪景為主。"],
+  ["札幌諏訪神社","若北海道神宮周邊提早逛完，或想增加另一處神社參拜，可安排早上前往；以冬季花手水與雪景為主。"],
   ["藻岩山觀景台","函館山夜景沒看到時，放在 DAY 9 傍晚；出發前確認天候、纜車與迷你纜車是否運行。"],
   ["支笏湖一日遊","若找到合適的札幌出發團且更想看湖景，可用整日支笏湖取代 DAY 9 啤酒博物館與購物；冬季此時通常尚未進入冰濤祭。"],
   ["定山溪溫泉","想增加雪景與泡湯時，可安排札幌出發的半日或一日往返，替換其中一段札幌市區行程；冬季須先確認巴士班次、日歸溫泉營業時間與末班回程。"],
@@ -132,6 +132,6 @@ export default function Home(){return <main>
 
   <section className="checklists shell" id="checklists"><div className="sectionHeading"><p>BOOK &amp; PLAN B</p><h2>預約與備案清單</h2></div><div className="listColumns"><article className="listPanel bookingList"><div className="listPanelTitle"><span>RESERVATIONS</span><h3>要預定的</h3></div><ol>{reservations.map((item,i)=><li key={item[1]}><b>{String(i+1).padStart(2,"0")}</b><div><time>{item[0]}</time><h4>{item[1]}</h4><p>{item[2]}</p></div></li>)}</ol></article><article className="listPanel backupList"><div className="listPanelTitle"><span>ALTERNATIVES</span><h3>備案</h3></div><ol>{backups.map((item,i)=><li key={item[0]}><b>{String(i+1).padStart(2,"0")}</b><div><h4>{item[0]}</h4><p>{item[1]}</p></div></li>)}</ol></article></div></section>
 
-  <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>元旦北海道神宮</h3><p>元旦近年約 18:00 關門，這個安排非常吃入境速度。若傍晚前還沒抵達札幌住宿，DAY 1 直接改市區晚餐與休息；DAY 8 早上仍會前往北海道神宮與圓山一帶。</p></article><article><b>02</b><h3>年始營業</h3><p>時計台、電視塔、百貨、餐廳與小樽各店的年始時間，請於出發前再次確認；DAY 9 場外市場也需確認選定餐廳是否營業。</p></article><article><b>03</b><h3>洞爺交通</h3><p>先確認住宿方往返洞爺站的接駁時間；昭和新山與有珠山只有啟用備案時，才需要另約計程車或包車。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；藻岩山放在 DAY 9 傍晚備用，支笏湖則保留為可替換 DAY 9 全日的方案。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；DAY 8 成吉思汗、DAY 9 啤酒博物館導覽與 Purple Dahlia 也建議事先預約。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、住宿接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
+  <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>北海道神宮參拜</h3><p>神宮可能提早結束參拜，這個安排非常吃入境速度。若傍晚前還沒抵達札幌住宿，DAY 1 直接改市區晚餐與休息；DAY 8 早上仍會前往北海道神宮與圓山一帶。</p></article><article><b>02</b><h3>年始營業</h3><p>時計台、電視塔、百貨、餐廳與小樽各店的年始時間，請於出發前再次確認；DAY 9 場外市場也需確認選定餐廳是否營業。</p></article><article><b>03</b><h3>洞爺交通</h3><p>先確認住宿方往返洞爺站的接駁時間；昭和新山與有珠山只有啟用備案時，才需要另約計程車或包車。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；藻岩山放在 DAY 9 傍晚備用，支笏湖則保留為可替換 DAY 9 全日的方案。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；DAY 8 成吉思汗、DAY 9 啤酒博物館導覽與 Purple Dahlia 也建議事先預約。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、住宿接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
   <footer><div className="shell"><strong>北國十日</strong><p>HOKKAIDO WINTER JOURNAL</p><a href="#top">回到頁首 ↑</a></div></footer>
   </main>}
