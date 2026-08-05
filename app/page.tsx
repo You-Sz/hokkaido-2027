@@ -8,6 +8,7 @@ const days = [
     ["18:40","薄野晚餐","參拜後返回薄野吃晚餐；想吃拉麵可安排麵屋雪風。"],
     ["20:00","回飯店休息","辦理入住、整理行李，第一晚不再安排逛街。"]]},
   { date:"01.02", weekday:"SAT", city:"札幌", title:"札幌市區散步與初賣", tone:"ice", stops:[
+    ["07:30","Vessel Hotel 早餐","在飯店享用早餐，吃完稍作休息再前往大通。"],
     ["09:30","札幌時計台・大通公園","看時計台外觀並沿大通公園散步；年始室內開放時間需再確認。"],
     ["10:40","札幌電視塔","登塔俯瞰大通；若年始延後開門，就先逛大通周邊再回來。"],
     ["11:45","札幌市區午餐","在大通附近選擇年始有營業的餐廳，午餐後直接前往百貨商圈。"],
@@ -33,8 +34,8 @@ const days = [
     ["16:10","小樽運河","等待藍調時刻與點燈。"],
     ["18:00","返回札幌","由小樽站搭 JR 回札幌。"]]},
   { date:"01.05", weekday:"TUE", city:"洞爺湖", title:"湖畔、溫泉街與一泊二食", tone:"ice", stops:[
-    ["07:30","Vessel Hotel 早餐","在飯店悠閒享用早餐，吃完回房整理並確認行李。"],
-    ["08:15","札幌退房","辦理退房後前往札幌站，預留冬季移動緩衝。"],
+    ["07:30","二條市場・海鮮早餐","退房前步行前往二條市場吃海鮮早餐；餐廳選定後再確認營業時間。"],
+    ["08:25","回飯店取行李・退房","返回 Vessel Hotel 取行李並辦理退房，再前往札幌站。"],
     ["09:30 前後","特急北斗","改搭上午較晚班次前往洞爺；實際車次待 2027 正式時刻表公布後預約。"],
     ["11:30 前後","抵達洞爺站","轉巴士或預約接送到飯店寄放行李。"],
     ["12:30","洞爺湖溫泉街午餐","在溫泉街選擇餐廳用餐，下午不再趕往火山景區。"],
@@ -107,7 +108,6 @@ const reservations = [
 
 const backups = [
   ["札幌諏訪神社","若北海道神宮周邊提早逛完，或想增加另一處新年參拜，可安排早上前往；以冬季花手水與雪景為主。"],
-  ["二條市場","若想在市中心臨時增加海鮮早餐或午餐，可替換札幌市區用餐；市場內各店年始營業時間不同，當天先確認。"],
   ["藻岩山觀景台","函館山夜景沒看到時，放在 1/9 傍晚；出發前確認天候、纜車與迷你纜車是否運行。"],
   ["支笏湖一日遊","若找到合適的札幌出發團且更想看湖景，可用整日支笏湖取代 1/9 啤酒博物館與購物；1 月上旬通常尚未進入冰濤祭。"],
   ["白色戀人公園・札幌市區","遇到大雪或市區交通受影響時，以室內景點、地下街與彈性購物為主。"],
@@ -128,6 +128,6 @@ export default function Home(){return <main>
 
   <section className="checklists shell" id="checklists"><div className="sectionHeading"><p>BOOK &amp; PLAN B</p><h2>預約與備案清單</h2></div><div className="listColumns"><article className="listPanel bookingList"><div className="listPanelTitle"><span>RESERVATIONS</span><h3>要預定的</h3></div><ol>{reservations.map((item,i)=><li key={item[1]}><b>{String(i+1).padStart(2,"0")}</b><div><time>{item[0]}</time><h4>{item[1]}</h4><p>{item[2]}</p></div></li>)}</ol></article><article className="listPanel backupList"><div className="listPanelTitle"><span>ALTERNATIVES</span><h3>備案</h3></div><ol>{backups.map((item,i)=><li key={item[0]}><b>{String(i+1).padStart(2,"0")}</b><div><h4>{item[0]}</h4><p>{item[1]}</p></div></li>)}</ol></article></div></section>
 
-  <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>元旦北海道神宮</h3><p>元旦近年約 18:00 關門，這個安排非常吃入境速度。若 16:40 還沒抵達飯店，1/1 直接改市區晚餐與休息；1/8 早上仍會前往北海道神宮與圓山一帶。</p></article><article><b>02</b><h3>年始營業</h3><p>時計台、電視塔、百貨、餐廳與小樽各店的 2027 年始時間，請於 2026 年 11–12 月再確認；1/9 場外市場也需確認選定餐廳是否營業。</p></article><article><b>03</b><h3>洞爺交通</h3><p>先確認湖之栖往返洞爺站的接駁時間；昭和新山與有珠山只有啟用備案時，才需要另約計程車或包車。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；藻岩山放在 1/9 傍晚備用，支笏湖則保留為可替換 1/9 全日的方案。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；1/8 成吉思汗、1/9 啤酒博物館導覽與 Purple Dahlia 也建議事先預約。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、飯店接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
+  <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>元旦北海道神宮</h3><p>元旦近年約 18:00 關門，這個安排非常吃入境速度。若 16:40 還沒抵達飯店，1/1 直接改市區晚餐與休息；1/8 早上仍會前往北海道神宮與圓山一帶。</p></article><article><b>02</b><h3>年始營業</h3><p>時計台、電視塔、百貨、餐廳與小樽各店的 2027 年始時間，請於 2026 年 11–12 月再確認；1/5 二條市場與 1/9 場外市場也需確認選定餐廳是否營業。</p></article><article><b>03</b><h3>洞爺交通</h3><p>先確認湖之栖往返洞爺站的接駁時間；昭和新山與有珠山只有啟用備案時，才需要另約計程車或包車。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；藻岩山放在 1/9 傍晚備用，支笏湖則保留為可替換 1/9 全日的方案。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；1/8 成吉思汗、1/9 啤酒博物館導覽與 Purple Dahlia 也建議事先預約。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、飯店接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
   <footer><div className="shell"><strong>北國十日</strong><p>HOKKAIDO WINTER JOURNAL · 2027</p><a href="#top">回到頁首 ↑</a></div></footer>
   </main>}
