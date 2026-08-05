@@ -32,14 +32,14 @@ const days = [
     ["14:40","彩繪玻璃美術館","參觀小樽藝術村；2027 年始營業需再確認。"],
     ["16:10","小樽運河","等待藍調時刻與點燈。"],
     ["18:00","返回札幌","由小樽站搭 JR 回札幌。"]]},
-  { date:"01.05", weekday:"TUE", city:"洞爺湖", title:"火山、湖景與一泊二食", tone:"ice", stops:[
-    ["06:45","Vessel Hotel 早餐","在飯店享用早餐，吃完回房整理並確認行李。"],
-    ["07:30","札幌退房","辦理退房後前往札幌站，預留冬季移動緩衝。"],
-    ["08:43","特急北斗","建議訂早班指定席；車次以正式班表為準。"],
-    ["10:35","抵達洞爺站","轉巴士或預約接送到飯店寄放行李。"],
-    ["12:00","昭和新山","午餐、火山地景；以預約計程車或包車移動。"],
-    ["13:30","有珠山纜車","登上展望台；強風停駛時改湖畔行程。"],
-    ["15:30","洞爺湖畔","回飯店入住、散步與泡湯。"],
+  { date:"01.05", weekday:"TUE", city:"洞爺湖", title:"湖畔、溫泉街與一泊二食", tone:"ice", stops:[
+    ["07:30","Vessel Hotel 早餐","在飯店悠閒享用早餐，吃完回房整理並確認行李。"],
+    ["08:15","札幌退房","辦理退房後前往札幌站，預留冬季移動緩衝。"],
+    ["09:30 前後","特急北斗","改搭上午較晚班次前往洞爺；實際車次待 2027 正式時刻表公布後預約。"],
+    ["11:30 前後","抵達洞爺站","轉巴士或預約接送到飯店寄放行李。"],
+    ["12:30","洞爺湖溫泉街午餐","在溫泉街選擇餐廳用餐，下午不再趕往火山景區。"],
+    ["14:00","溫泉街・洞爺湖畔散策","沿湖看雪景、逛伴手禮店與咖啡館，依天候彈性停留。"],
+    ["15:30","湖之栖入住・泡湯","回飯店入住、休息並享受溫泉。"],
     ["18:00","一泊二食","享用飯店晚餐，晚上留白休息。"]]},
   { date:"01.06", weekday:"WED", city:"函館", title:"坡道盡頭，等待百萬夜景", tone:"snow", stops:[
     ["08:00","飯店早餐","退房後搭接駁前往洞爺站。"],
@@ -98,7 +98,7 @@ const reservations = [
   ["01.04","宝すし（Takara Sushi）午餐","預約 12:30 午餐；店家午間僅營業至 14:00。"],
   ["01.04","吉伊卡哇 MOGUMOGU 本舖","目前須透過官方 LINE 參加入店預約或抽選，出發前再確認規則。"],
   ["01.05—07","特急北斗指定席","預訂札幌→洞爺、洞爺→函館、函館→札幌三段座位。"],
-  ["01.05","洞爺湖接駁與計程車","先向湖之栖確認接駁，再預約昭和新山、有珠山一帶的移動方式。"],
+  ["01.05","洞爺湖飯店接駁","先向湖之栖確認洞爺站接送時間；若啟用昭和新山備案，再另約計程車或包車。"],
   ["01.08","成吉思汗烤肉晚餐","選定札幌站、狸小路或薄野附近餐廳後，預約 18:30。"],
   ["01.09","札幌啤酒博物館導覽","若要參加 Guide Tour 與限定試飲，開放預售後先購票；自由參觀也需購票。"],
   ["01.09","薄野喫茶 Purple Dahlia","預約 22:00 左右座位，作為旅行最後一晚的深夜聖代。"]
@@ -109,7 +109,7 @@ const backups = [
   ["藻岩山觀景台","函館山夜景沒看到時，放在 1/9 傍晚；出發前確認天候、纜車與迷你纜車是否運行。"],
   ["支笏湖一日遊","若找到合適的札幌出發團且更想看湖景，可用整日支笏湖取代 1/9 啤酒博物館與購物；1 月上旬通常尚未進入冰濤祭。"],
   ["白色戀人公園・札幌市區","遇到大雪或市區交通受影響時，以室內景點、地下街與彈性購物為主。"],
-  ["洞爺湖畔散策","有珠山纜車因強風停駛時，改走湖畔、溫泉街與室內咖啡行程。"]
+  ["昭和新山・有珠山纜車","若 1/5 天候穩定、交通已預約且想增加火山景觀，可用此方案取代下午溫泉街散策；強風時不要執行。"]
 ];
 
 export default function Home(){return <main>
@@ -126,6 +126,6 @@ export default function Home(){return <main>
 
   <section className="checklists shell" id="checklists"><div className="sectionHeading"><p>BOOK &amp; PLAN B</p><h2>預約與備案清單</h2></div><div className="listColumns"><article className="listPanel bookingList"><div className="listPanelTitle"><span>RESERVATIONS</span><h3>要預定的</h3></div><ol>{reservations.map((item,i)=><li key={item[1]}><b>{String(i+1).padStart(2,"0")}</b><div><time>{item[0]}</time><h4>{item[1]}</h4><p>{item[2]}</p></div></li>)}</ol></article><article className="listPanel backupList"><div className="listPanelTitle"><span>ALTERNATIVES</span><h3>備案</h3></div><ol>{backups.map((item,i)=><li key={item[0]}><b>{String(i+1).padStart(2,"0")}</b><div><h4>{item[0]}</h4><p>{item[1]}</p></div></li>)}</ol></article></div></section>
 
-  <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>元旦北海道神宮</h3><p>元旦近年約 18:00 關門，這個安排非常吃入境速度。若 16:40 還沒抵達飯店，1/1 直接改市區晚餐與休息；1/8 早上仍會前往北海道神宮與圓山一帶。</p></article><article><b>02</b><h3>年始營業</h3><p>時計台、電視塔、百貨、餐廳與小樽各店的 2027 年始時間，請於 2026 年 11–12 月再確認；1/9 場外市場也需確認選定餐廳是否營業。</p></article><article><b>03</b><h3>洞爺交通</h3><p>洞爺站、溫泉街與有珠山並非步行範圍。先確認飯店接駁，再預約計程車或包車前往昭和新山。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；藻岩山放在 1/9 傍晚備用，支笏湖則保留為可替換 1/9 全日的方案。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；1/8 成吉思汗、1/9 啤酒博物館導覽與 Purple Dahlia 也建議事先預約。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、飯店接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
+  <section className="notes" id="notes"><div className="shell"><div className="sectionHeading light"><p>NOTES BEFORE DEPARTURE</p><h2>出發前最後確認</h2></div><div className="notesGrid"><article><b>01</b><h3>元旦北海道神宮</h3><p>元旦近年約 18:00 關門，這個安排非常吃入境速度。若 16:40 還沒抵達飯店，1/1 直接改市區晚餐與休息；1/8 早上仍會前往北海道神宮與圓山一帶。</p></article><article><b>02</b><h3>年始營業</h3><p>時計台、電視塔、百貨、餐廳與小樽各店的 2027 年始時間，請於 2026 年 11–12 月再確認；1/9 場外市場也需確認選定餐廳是否營業。</p></article><article><b>03</b><h3>洞爺交通</h3><p>先確認湖之栖往返洞爺站的接駁時間；昭和新山與有珠山只有啟用備案時，才需要另約計程車或包車。</p></article><article><b>04</b><h3>風雪備案</h3><p>函館山與有珠山纜車可能因強風停駛；藻岩山放在 1/9 傍晚備用，支笏湖則保留為可替換 1/9 全日的方案。</p></article><article><b>05</b><h3>指定席・餐廳</h3><p>特急北斗建議提早預約指定席；1/8 成吉思汗、1/9 啤酒博物館導覽與 Purple Dahlia 也建議事先預約。</p></article><article><b>06</b><h3>時間性質</h3><p>頁面中的時間是順路規劃值，JR、巴士、飯店接駁與旅行團時間須以正式預約資料覆蓋。</p></article></div></div></section>
   <footer><div className="shell"><strong>北國十日</strong><p>HOKKAIDO WINTER JOURNAL · 2027</p><a href="#top">回到頁首 ↑</a></div></footer>
   </main>}
